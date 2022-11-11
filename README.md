@@ -1,2 +1,3 @@
-# Observable-Plot
-D3训练库 Observable-Plot
+# README
+
+observable-plot 使用
