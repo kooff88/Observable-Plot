@@ -6,6 +6,16 @@ import { aapl } from "./aapl.js";
 import { tdf } from "./tdf.js";
 import { driving } from "./driving.js";
 import { bls } from "./bls.js";
+import {
+    amzn,
+    goog,
+    ibm,
+    stocks
+} from "./stock/";
+import { sftemps } from "./sftemps.js";
+import { someCloses } from "./someCloses.js";
+import { someAapl } from "./someAapl.js";
+import { gary } from "./gary.js";
 
 import styles from './index.less';
 
@@ -23,9 +33,9 @@ const Line: React.FC = () => {
 
         // let points = aapl.map(d => [d.Date, d.Close]);
         // console.log('points->points', points);
-        let blsAA = bls.forEach((item: any) => item.date = new Date(item.date))
+        let blsAA = stocks.forEach((item: any) => item.Date = new Date(item.Date))
 
-        console.log('aapl->aapl', blsAA);
+        console.log('aapl->aapl', stocks);
 
         // let temp = Plot.plot({
         //     marks: [
@@ -111,22 +121,138 @@ const Line: React.FC = () => {
 
 
         /**
-         * 重复日期的数据，会多条绘制
+         * 重复日期的数据，会多条绘制 , 颜色
         */
+        // let temp = Plot.plot({
+        //     x: {
+        //         label: null
+        //     },
+        //     y: {
+        //         grid: true,
+        //         label: "↑ Unemployment (%)"
+        //     },
+        //     marks: [
+        //         Plot.ruleY([0]),
+        //         // Plot.line(bls, { x: "date", y: "unemployment", z: "division" })
+        //         Plot.line(bls, {
+        //             x: "date",
+        //             y: "unemployment",
+        //             z: "division",
+        //             stroke: "unemployment"
+        //         })
+        //     ]
+        // })
+
+        /**
+        * 重复日期的数据，会多条绘制 , 颜色, 单条
+       */
+        // let temp = Plot.plot({
+        //     y: {
+        //         grid: true,
+        //         label: "↑ Unemployment (%)"
+        //     },
+        //     color: {
+        //         domain: [false, true],
+        //         range: ["#ccc", "red"]
+        //     },
+        //     marks: [
+        //         Plot.ruleY([0]),
+        //         // Plot.line(bls, { x: "date", y: "unemployment", z: "division" })
+        //         Plot.line(bls, {
+        //             x: "date",
+        //             y: "unemployment",
+        //             z: "division",
+        //             sort: highlight,
+        //             stroke: highlight
+        //         })
+        //     ]
+        // })
+
+        /**
+        * 会多条绘制
+       */
+        // let temp = Plot.plot({
+        //     style: "overflow:visible",
+        //     y: {
+        //         type: "log",
+        //         grid: true,
+        //         label: "↑ Change in price (%)",
+        //         tickFormat: formatChange()
+        //     },
+        //     marks: [
+        //         Plot.ruleY([1]),
+        //         Plot.line(stocks, Plot.normalizeY({
+        //             x: "Date",
+        //             y: "Close",
+        //             stroke: "Symbol"
+        //         })),
+        //         Plot.text(stocks, Plot.selectLast(Plot.normalizeY({
+        //             x: "Date",
+        //             y: "Close",
+        //             z: "Symbol",
+        //             text: "Symbol",
+        //             textAnchor: "start",
+        //             dx: 30
+        //         })))
+        //     ]
+        // })
+
+        // let temp = Plot.plot({
+        //     y: {
+        //         grid: true,
+        //         label: "↑ Temperature (°F)"
+        //     },
+        //     marks: [
+        //         Plot.line(sftemps, Plot.windowY({ k: 14, x: "date", y: "low", stroke: "#4e79a7" })),
+        //         Plot.line(sftemps, Plot.windowY({ k: 14, x: "date", y: "high", stroke: "#e15759" })),
+        //         Plot.ruleY([32])
+        //     ]
+        // })
+
+        // let temp = Plot.plot({
+        //     y: {
+        //         grid: true,
+        //     },
+        //     marks: [
+        //         Plot.lineY(aapl, { x: "Date", y: someCloses })
+        //     ]
+        // })
+
+        // let temp = Plot.plot({
+        //     y: {
+        //         grid: true,
+        //     },
+        //     marks: [
+        //         Plot.lineY(someAapl, { x: "Date", y: "Close" })
+        //     ]
+        // })
+
         let temp = Plot.plot({
             y: {
                 grid: true,
-                label: "↑ Unemployment (%)"
             },
             marks: [
-                Plot.ruleY([0]),
-                Plot.line(bls, { x: "date", y: "unemployment", z: "division" })
+                Plot.lineY(gary, { x: "date", y: "unemployment", curve: "step", strokeWidth: 1 })
             ]
         })
+
+
+
 
         chartBox.appendChild(temp)
     }, [])
 
+    function highlight(d) {
+        return /, MI /.test(d.division);
+    }
+    // amzn,
+    // goog,
+    // ibm,
+    // stocks
+    const formatChange = () => {
+        const format = d3.format("+d");
+        return x => format((x - 1) * 100);
+    }
 
 
     return (
