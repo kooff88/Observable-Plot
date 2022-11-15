@@ -34,6 +34,11 @@ export default defineConfig({
           path: '/d3/channels',
           component: "./D3/Channels"
         },
+        {
+          name: "刻度",
+          path: '/d3/scales',
+          component: "./D3/Scales"
+        },
       ],
     },
     // {
