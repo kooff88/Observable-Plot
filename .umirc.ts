@@ -25,9 +25,14 @@ export default defineConfig({
       path: '/d3',
       routes: [
         {
-          name: "line",
+          name: "线",
           path: '/d3/line',
           component: "./D3/Line"
+        },
+        {
+          name: "渠道",
+          path: '/d3/channels',
+          component: "./D3/Channels"
         },
       ],
     },

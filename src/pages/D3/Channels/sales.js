@@ -1,0 +1,1 @@
+export const sales = [{ "units": 10, "fruit": "fig" }, { "units": 20, "fruit": "date" }, { "units": 40, "fruit": "plum" }, { "units": 30, "fruit": "plum" }]

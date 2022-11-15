@@ -1,0 +1,1 @@
+export const xyData = [[10, "fig"], [20, "date"], [40, "plum"], [30, "plum"]]
