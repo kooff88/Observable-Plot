@@ -49,6 +49,11 @@ export default defineConfig({
           path: '/d3/facets',
           component: "./D3/Facets"
         },
+        {
+          name: "图例",
+          path: '/d3/legends',
+          component: "./D3/Legends"
+        },
       ],
     },
     // {
