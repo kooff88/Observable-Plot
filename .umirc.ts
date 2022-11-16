@@ -62,6 +62,10 @@ export default defineConfig({
           name: "箭头",
           path: '/d3/arrow',
           component: "./D3/Arrow"
+        }, {
+          name: "柱状图",
+          path: '/d3/bar',
+          component: "./D3/Bar"
         },
       ],
     },
