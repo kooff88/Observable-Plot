@@ -54,6 +54,11 @@ export default defineConfig({
           path: '/d3/legends',
           component: "./D3/Legends"
         },
+        {
+          name: "面积图",
+          path: '/d3/area',
+          component: "./D3/Area"
+        },
       ],
     },
     // {
