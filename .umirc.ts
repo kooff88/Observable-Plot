@@ -39,6 +39,11 @@ export default defineConfig({
           path: '/d3/scales',
           component: "./D3/Scales"
         },
+        {
+          name: "变换",
+          path: '/d3/transforms',
+          component: "./D3/Transforms"
+        },
       ],
     },
     // {
