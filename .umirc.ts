@@ -58,6 +58,10 @@ export default defineConfig({
           name: "面积图",
           path: '/d3/area',
           component: "./D3/Area"
+        }, {
+          name: "箭头",
+          path: '/d3/arrow',
+          component: "./D3/Arrow"
         },
       ],
     },
