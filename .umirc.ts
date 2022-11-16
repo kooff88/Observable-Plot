@@ -44,6 +44,11 @@ export default defineConfig({
           path: '/d3/transforms',
           component: "./D3/Transforms"
         },
+        {
+          name: "小平面",
+          path: '/d3/facets',
+          component: "./D3/Facets"
+        },
       ],
     },
     // {
