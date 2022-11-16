@@ -3,6 +3,8 @@ import moment from "moment";
 import * as d3 from "d3";
 import * as Plot from "@observablehq/plot";
 import { gistemp } from "./gistemp";
+import { sftemp } from "./sftemp";
+
 import styles from './index.less';
 
 const Scales: React.FC = () => {
@@ -59,15 +61,49 @@ const Scales: React.FC = () => {
         //     ]
         // })
 
+        // let temp = Plot.plot({
+        //     grid: true,
+        //     color: {
+        //         type: "diverging",
+        //         scheme: "BuRd"
+        //     },
+        //     marks: [
+        //         Plot.ruleY([0]),
+        //         Plot.dot(gistemp, { x: "Date", y: "Anomaly", stroke: "Anomaly" })
+        //     ]
+        // })
+
+        // let temp = Plot.plot({
+        //     r: {
+        //         range: [0, 20]
+        //     },
+        //     marks: [
+        //         Plot.dot([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], { x: d => d, r: d => d, fill: "black" })
+        //     ]
+        // })
+
+        // let temp = Plot.plot({
+        //     y: {
+        //         grid: true,
+        //         label: `Daily temperature range (°C)`,
+        //         transform: f => (f - 32) * (5 - 9)
+        //     },
+        //     marks: [
+        //         Plot.areaY(sftemp, { x: "date", y1: "low", y2: "high" })
+        //     ]
+        // })
+
         let temp = Plot.plot({
-            grid: true,
+            y: {
+                percent: true
+            },
             color: {
                 type: "diverging",
                 scheme: "BuRd"
             },
             marks: [
-                Plot.ruleY([0]),
-                Plot.dot(gistemp, { x: "Date", y: "Anomaly", stroke: "Anomaly" })
+                Plot.rectY(gistemp, Plot.binX({ y: "proportion", fill: "median" }, { x: "Anomaly", fill: "Anomaly" })),
+                Plot.ruleY([0])
             ]
         })
 
