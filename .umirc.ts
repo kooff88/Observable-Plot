@@ -82,6 +82,10 @@ export default defineConfig({
           name: "密度",
           path: '/d3/density',
           component: "./D3/Density"
+        }, {
+          name: "点",
+          path: '/d3/dot',
+          component: "./D3/Dot"
         },
       ],
     },

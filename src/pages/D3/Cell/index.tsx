@@ -56,22 +56,27 @@ const Cell: React.FC = () => {
         //     ]
         // })
 
+        // let temp = Plot.plot({
+        //     x: {
+        //         round: false,
+        //         ticks: d3.ticks(...d3.extent(hadcrut, d => d.year), 10),
+        //         domain: d3.range(d3.min(hadcrut, d => d.year), d3.max(hadcrut, d => d.year) + 1),
+        //         label: null
+        //     },
+        //     color: {
+        //         type: "diverging",
+        //         scheme: "BuRd"
+        //     },
+        //     marks: [
+        //         Plot.cell(hadcrut, { x: "year", fill: "anomaly" })
+        //     ]
+        // })
+
         let temp = Plot.plot({
-            x: {
-                round: false,
-                ticks: d3.ticks(...d3.extent(hadcrut, d => d.year), 10),
-                domain: d3.range(d3.min(hadcrut, d => d.year), d3.max(hadcrut, d => d.year) + 1),
-                label: null
-            },
-            color: {
-                type: "diverging",
-                scheme: "BuRd"
-            },
             marks: [
-                Plot.cell(hadcrut, { x: "year", fill: "anomaly" })
+                Plot.dot(alphabet, { x: "letter", r: "frequency", fill: "currentColor" })
             ]
         })
-
 
 
         chartBox.appendChild(temp)
