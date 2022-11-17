@@ -78,6 +78,10 @@ export default defineConfig({
           name: "细胞图2",
           path: '/d3/delaunay',
           component: "./D3/Delaunay"
+        }, {
+          name: "密度",
+          path: '/d3/density',
+          component: "./D3/Density"
         },
       ],
     },
