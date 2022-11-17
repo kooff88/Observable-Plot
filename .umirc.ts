@@ -74,6 +74,10 @@ export default defineConfig({
           name: "细胞图",
           path: '/d3/cell',
           component: "./D3/Cell"
+        }, {
+          name: "细胞图2",
+          path: '/d3/delaunay',
+          component: "./D3/Delaunay"
         },
       ],
     },
