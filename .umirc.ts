@@ -66,6 +66,10 @@ export default defineConfig({
           name: "柱状图",
           path: '/d3/bar',
           component: "./D3/Bar"
+        }, {
+          name: "盒子图",
+          path: '/d3/box',
+          component: "./D3/Box"
         },
       ],
     },
