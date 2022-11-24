@@ -86,6 +86,10 @@ export default defineConfig({
           name: "点",
           path: '/d3/dot',
           component: "./D3/Dot"
+        }, {
+          name: "图片",
+          path: '/d3/images',
+          component: "./D3/Images"
         },
       ],
     },
