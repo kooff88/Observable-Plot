@@ -3,6 +3,8 @@ import moment from "moment";
 import * as d3 from "d3";
 import * as Plot from "@observablehq/plot";
 import { aapl } from "./aapl.js";
+import { aapl120 } from "./aapl120.js";
+
 import { tdf } from "./tdf.js";
 import { driving } from "./driving.js";
 import { bls } from "./bls.js";
@@ -227,15 +229,49 @@ const Line: React.FC = () => {
         //     ]
         // })
 
+        // let temp = Plot.plot({
+        //     y: {
+        //         grid: true,
+        //     },
+        //     marks: [
+        //         Plot.lineY(gary, { x: "date", y: "unemployment", curve: "step", strokeWidth: 1 })
+        //     ]
+        // })
+
+
         let temp = Plot.plot({
+            width: 1000,
+            inset: 6,
+            x: {
+                label: null
+            },
             y: {
                 grid: true,
+                label: "↑ Stock price ($)"
+            },
+            color: {
+                range: ["#e41a1c", "#000000", "#4daf4a"]
             },
             marks: [
-                Plot.lineY(gary, { x: "date", y: "unemployment", curve: "step", strokeWidth: 1 })
+                Plot.ruleX(aapl120, {
+                    x: "Date",
+                    strokeOpacity: 0.1
+                }),
+                Plot.ruleX(aapl120, {
+                    x: "Date",
+                    y1: "Low",
+                    y2: "High"
+                }),
+                Plot.ruleX(aapl120, {
+                    x: "Date",
+                    y1: "Open",
+                    y2: "Close",
+                    stroke: d => Math.sign(d.Close - d.Open),
+                    strokeWidth: 4,
+                    strokeLinecap: "round"
+                })
             ]
         })
-
 
 
 

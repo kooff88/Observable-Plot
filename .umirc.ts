@@ -90,6 +90,10 @@ export default defineConfig({
           name: "图片",
           path: '/d3/images',
           component: "./D3/Images"
+        }, {
+          name: "文字",
+          path: '/d3/text',
+          component: "./D3/Text"
         },
       ],
     },
