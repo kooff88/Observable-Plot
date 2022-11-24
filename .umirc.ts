@@ -94,6 +94,10 @@ export default defineConfig({
           name: "文字",
           path: '/d3/text',
           component: "./D3/Text"
+        }, {
+          name: "矢量标记",
+          path: '/d3/vector',
+          component: "./D3/Vector"
         },
       ],
     },
