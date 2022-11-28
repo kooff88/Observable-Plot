@@ -98,6 +98,10 @@ export default defineConfig({
           name: "矢量标记",
           path: '/d3/vector',
           component: "./D3/Vector"
+        },{
+          name: "集群处理",
+          path: '/d3/group',
+          component: "./D3/Group"
         },
       ],
     },
