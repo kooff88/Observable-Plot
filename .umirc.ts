@@ -102,6 +102,10 @@ export default defineConfig({
           name: "集群处理",
           path: '/d3/group',
           component: "./D3/Group"
+        },{
+          name: "堆叠",
+          path: '/d3/stack',
+          component: "./D3/Stack"
         },
       ],
     },

@@ -17,7 +17,8 @@
     "@umijs/max": "^4.0.29",
     "antd": "^4.20.7",
     "d3": "^7.6.1",
-    "moment": "^2.29.4"
+    "moment": "^2.29.4",
+    "react-adaptive-hooks": "0.0.8"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

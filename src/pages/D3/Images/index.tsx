@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import moment from "moment";
+import { useNetworkStatus } from 'react-adaptive-hooks/network';
 import * as d3 from "d3";
 import * as Plot from "@observablehq/plot";
 import { apod } from "./apod";
@@ -10,6 +11,7 @@ import styles from './index.less';
 const Images: React.FC = () => {
 
     // console.log('alphabetalphabet', alphabet);
+    const { effectiveConnectionType } = useNetworkStatus();
 
     useEffect(() => {
         let chartBox = document.getElementById("chart");
@@ -107,7 +109,7 @@ const Images: React.FC = () => {
         })
 
 
-        chartBox.appendChild(temp)
+        // chartBox.appendChild(temp)
     }, [])
 
     const icons = {
@@ -115,8 +117,44 @@ const Images: React.FC = () => {
         x: "https://static.observableusercontent.com/files/94c968a3f33eac63c63b87b2f0f6cd97e2db624c65646d6839a5eb4d9c1b5543e922befd040cc5d55deaaa1c7e57c0075a186aa25874490616f2652d11f08592"
     }
 
+    const netWorkMemo = useMemo(()=>{
+
+        
+        // let url1 = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>`
+        // let url2 = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>`
+
+    },[])
+
+    // let url2 = "https://static.observableusercontent.com/files/94c968a3f33eac63c63b87b2f0f6cd97e2db624c65646d6839a5eb4d9c1b5543e922befd040cc5d55deaaa1c7e57c0075a186aa25874490616f2652d11f08592"
+
+
+    let url1 = "https://static.observableusercontent.com/files/3917899b7468c526a5bfe18f94d3cf1cfedf7a7c808976870a866d71d4a322af778ffb34fd3c06783be80ff60b10be3279d5dbc82f07a7201f4978130bc8edd6";
+    let url2 = "https://static.observableusercontent.com/files/94c968a3f33eac63c63b87b2f0f6cd97e2db624c65646d6839a5eb4d9c1b5543e922befd040cc5d55deaaa1c7e57c0075a186aa25874490616f2652d11f08592"
+  
+    let media;
+    switch(effectiveConnectionType) {
+        case 'slow-2g':
+        media = <img src={url2} alt='low resolution' />;
+        break;
+        case '2g':
+        media =  <img src={url2} alt='low resolution' />;
+        break;
+        case '3g':
+        media =  <img src={url2} alt='low resolution' />;
+        break;
+        case '4g':
+        media =  <img src={url1} alt='low resolution' />;
+        break;
+        default:
+        media = <img src={url2} alt='low resolution' />;
+        break;
+
+    }
     return (
-        <div className={styles.container} id="chart"  >
+        // <div className={styles.container} id="chart"  >
+        <div className={styles.container}>
+            {media}
+            {/* <img src={url2} alt='low resolution' /> */}
         </div>
     );
 };
