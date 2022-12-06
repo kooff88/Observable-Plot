@@ -130,6 +130,10 @@ export default defineConfig({
           name: "控制器",
           path: '/three/controlGui',
           component: "./Three/ControlGui"
+        },{
+          name: "场景2",
+          path: '/three/basicScene',
+          component: "./Three/BasicScene"
         },
       ]
     }
