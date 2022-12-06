@@ -122,6 +122,10 @@ export default defineConfig({
           name: "材质亮光",
           path: '/three/materialsLight',
           component: "./Three/MaterialsLight"
+        },{
+          name: "材质亮光动画",
+          path: '/three/materialsLightAnimation',
+          component: "./Three/MaterialsLightAnimation"
         },
       ]
     }

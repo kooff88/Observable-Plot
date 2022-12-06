@@ -12,7 +12,6 @@ const MaterialsLight: React.FC = () => {
 
     const init = () => {
         let scene = new THREE.Scene();
-        
         let camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 100);
 
         let renderer = new THREE.WebGLRenderer();
