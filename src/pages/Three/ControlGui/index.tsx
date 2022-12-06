@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import * as THREE  from "three";
 import  Stats from "stats.js";
+import * as dat from 'dat.gui';
 import styles from './index.less';
 
 console.log('THREE->THREE',THREE);
 
-const MaterialsLightAnimation: React.FC = () => {
+const ControlGui: React.FC = () => {
 
     useEffect(() => {
         init();
@@ -47,7 +48,7 @@ const MaterialsLightAnimation: React.FC = () => {
         cube.position.z = 0;
         // add the cube to the scene
         scene.add(cube);
-      
+
         // 圆形
         let sphereGeometry = new THREE.SphereGeometry(4, 20, 20);
         let sphereMaterial = new THREE.MeshLambertMaterial({color: 0x7777ff});
@@ -79,15 +80,27 @@ const MaterialsLightAnimation: React.FC = () => {
         document.getElementById("WebGL-output").appendChild(renderer.domElement);
 
         let step = 0;
-        renderScene();
+
+        let controls = new function (){
+            this.rotationSpeed = 0.02;
+            this.bouncingSpeed = 0.03;
+        }
+
+        let  gui = new dat.GUI();
+
+        gui.add( controls, 'rotationSpeed', 0, 0.5 );
+        gui.add( controls, 'bouncingSpeed', 0, 0.5 );
+
+        renderScene()
+
         function renderScene() {
             stats.update();
 
-            cube.rotation.x += 0.02;
-            cube.rotation.y += 0.02;
-            cube.rotation.z += 0.02;
+            cube.rotation.x += controls.rotationSpeed;
+            cube.rotation.y += controls.rotationSpeed;
+            cube.rotation.z += controls.rotationSpeed;
 
-            step += 0.04;
+            step += controls.bouncingSpeed;
             sphere.position.x = 20 + ( 10 * ( Math.cos(step)));
 
             sphere.position.y = 2 + ( 10 * Math.abs( Math.sin(step)));
@@ -110,10 +123,17 @@ const MaterialsLightAnimation: React.FC = () => {
             return stats;
     
         }
-
+        const onResize = () =>{ 
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+        }
+        window.addEventListener('resize', onResize, false);
+    
     }
 
-  
+ 
+ 
 
     return (
         <div className={styles.container}>
@@ -123,4 +143,4 @@ const MaterialsLightAnimation: React.FC = () => {
     );
 };
 
-export default MaterialsLightAnimation;
+export default ControlGui;

@@ -126,6 +126,10 @@ export default defineConfig({
           name: "材质亮光动画",
           path: '/three/materialsLightAnimation',
           component: "./Three/MaterialsLightAnimation"
+        },{
+          name: "控制器",
+          path: '/three/controlGui',
+          component: "./Three/ControlGui"
         },
       ]
     }
