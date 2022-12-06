@@ -35,13 +35,14 @@ const MaterialsLight: React.FC = () => {
 
         
         let cubeGeometry = new THREE.BoxGeometry(4,4,4);
-        let cubeMaterial = new THREE.MeshLambertMaterial({ color: 0xff0000 });
+        let cubeMaterial = new THREE.MeshLambertMaterial({ color: 'green' });
         let cube = new THREE.Mesh( cubeGeometry, cubeMaterial );
         cube.castShadow = true;
 
         cube.position.x = -4;
         cube.position.y = 3;
         cube.position.z = 0;
+
 
         scene.add(cube);
 
@@ -68,9 +69,14 @@ const MaterialsLight: React.FC = () => {
 
         document.getElementById("WebGL-output").appendChild( renderer.domElement );
 
-        renderer.render(scene, camera);
+        function animate() {
+            requestAnimationFrame( animate );
 
-
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+            renderer.render( scene, camera );
+        }
+        animate();
     }
 
     return (
