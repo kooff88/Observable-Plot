@@ -109,6 +109,22 @@ export default defineConfig({
         },
       ],
     },
+    {
+      name: 'ThreeJS',
+      path: '/three',
+      routes: [
+        {
+          name: "场景1",
+          path: '/three/firstScene',
+          component: "./Three/FirstScene"
+        },
+        {
+          name: "材质亮光",
+          path: '/three/materialsLight',
+          component: "./Three/MaterialsLight"
+        },
+      ]
+    }
     // {
     //   name: '权限演示',
     //   path: '/access',
