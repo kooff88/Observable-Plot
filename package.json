@@ -22,7 +22,8 @@
     "react-adaptive-hooks": "0.0.8",
     "stats": "^1.0.0",
     "stats.js": "^0.17.0",
-    "three": "^0.147.0"
+    "three": "^0.147.0",
+    "three-nebula": "^10.0.3"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

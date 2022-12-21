@@ -1,21 +1,32 @@
 import React, { useEffect } from "react";
 import * as THREE  from "three";
-import  Stats from "stats.js";
+// import  Stats from "stats.js";
+import  Stats from "../libs/stats.js";
+
 import * as dat from 'dat.gui';
 // import water from "./water.jpg";
 import styles from './index.less';
 
 console.log('THREE->THREE',THREE);
 
-const BasicScene: React.FC = () => {
+const Light: React.FC = () => {
 
     useEffect(() => {
         initialOne();
     }, [])
 
     const initialOne = () => {
-        let stats = initStats();
-       
+
+
+        let status = initStats();
+
+        renderScene()
+
+        function renderScene() {
+            stats.update();
+
+        }
+
 
     }
 
@@ -43,4 +54,4 @@ const BasicScene: React.FC = () => {
     );
 };
 
-export default BasicScene;
+export default Light;

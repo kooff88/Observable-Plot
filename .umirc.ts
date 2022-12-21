@@ -114,6 +114,11 @@ export default defineConfig({
       path: '/three',
       routes: [
         {
+          name: "示例训练",
+          path: '/three/train',
+          component: "./Three/Train"
+        },
+        {
           name: "场景1",
           path: '/three/firstScene',
           component: "./Three/FirstScene"
@@ -134,9 +139,38 @@ export default defineConfig({
           name: "场景2",
           path: '/three/basicScene',
           component: "./Three/BasicScene"
+        },{
+          name: "多几何图",
+          path: '/three/geometries',
+          component: "./Three/Geometries"
+        },{
+          name: "皮肤人",
+          path: '/three/skinningModel',
+          component: "./Three/SkinningModel"
         },
+        {
+          name: "木箱",
+          path: '/three/woodenBox',
+          component: "./Three/WoodenBox"
+        },
+        {
+          name: "水波",
+          path: '/three/water',
+          component: "./Three/Water"
+        },
+        {
+          name: "光源",
+          path: '/three/light',
+          component: "./Three/Light"
+        },
+        // {
+        //   name: "照相机",
+        //   path: '/three/camera',
+        //   component: "./Three/Camera"
+        // }
       ]
-    }
+    },
+   
     // {
     //   name: '权限演示',
     //   path: '/access',

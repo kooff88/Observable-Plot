@@ -7,7 +7,7 @@ import styles from './index.less';
 
 console.log('THREE->THREE',THREE);
 
-const BasicScene: React.FC = () => {
+const Light: React.FC = () => {
 
     useEffect(() => {
         initialOne();
@@ -43,4 +43,4 @@ const BasicScene: React.FC = () => {
     );
 };
 
-export default BasicScene;
+export default Light;
